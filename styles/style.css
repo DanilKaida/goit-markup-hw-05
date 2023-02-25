@@ -116,6 +116,7 @@ border-bottom: 1px solid var(--border-color);
   }
 
 .header-link {
+  position: relative;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -125,9 +126,31 @@ border-bottom: 1px solid var(--border-color);
   color: var(--main-title-color);
 }
 
+.header-link.active {
+color: var(--hover-focus-color);
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--hover-focus-color);
+}
+ 
+.active::after{
+  display: block;
+}
+
 .header-link:is(:hover, :focus) {
   color: var(--hover-focus-color);
-}
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
 .address{
 margin-left: auto;
@@ -136,7 +159,7 @@ margin-left: auto;
 .address-list {
   display: flex;
   gap: 40px;
-   }
+}
 
 .header-address {
   display: block;
@@ -146,11 +169,12 @@ margin-left: auto;
   letter-spacing: 0.02em;
   padding: 24px 0;
   color: inherit;
- }
+}
 
 .header-address:is(:hover, :focus) {
   color: var(--hover-focus-color);
-}
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
 /* -----------------------------------HERO */
 
@@ -198,6 +222,50 @@ margin-left: auto;
 
 .hero-btn:is(:hover, :focus) {
     background-color: var(--hover-focus-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal{
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    
+  min-width: 408px;
+  min-height: 576px;
+  padding: 15px;
+  background-color: #FCFCFC;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 24px;
+  height: 24px;
 }
 /* ----------------------section FEATURES */
   
@@ -223,6 +291,7 @@ margin-left: auto;
   flex-direction: column;
   width: 264px;
 }
+
 .feature{
 height: 112px;
 display: flex;
@@ -355,6 +424,7 @@ fill: #f4f4fd;
 
 .team-soc-link:is(:hover, :focus) {
   background-color: var(--hover-focus-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* --------------------------------CUSTOMERS*/
 .customers {
@@ -400,6 +470,8 @@ fill: #f4f4fd;
 .customer-link:is(:hover, :focus) {
   color: var(--hover-focus-color);
   border-color: var(--hover-focus-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ------------------------------FOOTER */
@@ -478,6 +550,7 @@ fill: #f4f4fd;
 }
 .footer-soc-link:is(:hover, :focus) {
   background-color: #31D0AA;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------------------------------PORTFOLIO -- */
@@ -519,6 +592,9 @@ fill: #f4f4fd;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
   0px 2px 1px 0px rgba(0, 0, 0, 0.08),
   0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------------------------WORK EXAMPLES -- */
@@ -542,6 +618,35 @@ fill: #f4f4fd;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
   0px 1px 1px rgba(46, 47, 66, 0.16),
   0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.example-link:hover .overlay-text{
+  transform: translateY(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-left: 30px;
+  
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  color: #f4f4fd;
+  background-color: var(--main-button-color);
+  transform: translateY(100%);
 }
 
 .example-link-info{
