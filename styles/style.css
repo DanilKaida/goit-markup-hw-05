@@ -8,6 +8,7 @@
   --main-button-color: #4D5AE5;
   --hover-focus-color: #404BBF;
   --border-color: #e7e9fc;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p,h1,h2,h3,h4,h5,h6 {
@@ -124,7 +125,7 @@ border-bottom: 1px solid var(--border-color);
   display: block;
   padding: 24px 0;
   color: var(--main-title-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--transition-timing-function);
 }
 
 .header-link.active {
@@ -169,7 +170,7 @@ margin-left: auto;
   letter-spacing: 0.02em;
   padding: 24px 0;
   color: inherit;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--transition-timing-function);
 }
 
 .header-address:is(:hover, :focus) {
@@ -218,7 +219,7 @@ margin-left: auto;
   border-radius: 4px;
   border: none;
   background-color: var(--main-button-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--transition-timing-function);
 }
 
 .hero-btn:is(:hover, :focus) {
@@ -233,7 +234,7 @@ margin-left: auto;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms var(--transition-timing-function);
   }
 
 .backdrop.is-hidden {
@@ -257,7 +258,7 @@ margin-left: auto;
   background-color: #FCFCFC;
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms var(--transition-timing-function);
 }
 
 .modal-btn {
@@ -420,7 +421,7 @@ background-color: var(--second-background-color);
   align-items: center;
   border-radius: 50%;
   background-color: var(--main-button-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--transition-timing-function);
 }
 
 .team-soc-icon{
@@ -465,8 +466,8 @@ fill: #f4f4fd;
   border: 1px solid #8E8F99;
   border-radius: 4px;
   color: #8E8F99;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--transition-timing-function),
+  border-color 250ms var(--transition-timing-function);
   }
 
 .customer-icon {
@@ -548,7 +549,7 @@ fill: #f4f4fd;
   align-items: center;
   border-radius: 50%;
   background-color: #434455;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--transition-timing-function);
 }
 .footer-soc-icon{
   fill: #f4f4fd;
@@ -586,9 +587,9 @@ fill: #f4f4fd;
   border-radius: 4px;
   background-color: var(--second-background-color);
   color: var(--main-button-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: color 250ms var(--transition-timing-function),
+  background-color 250ms var(--transition-timing-function),
+  box-shadow 250ms var(--transition-timing-function); 
 }
 
 .portfolio-btn:is(:hover, :focus) {
@@ -624,7 +625,6 @@ fill: #f4f4fd;
 
 .example-link:hover .overlay-text{
   transform: translateY(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
 .overlay {
@@ -649,6 +649,7 @@ fill: #f4f4fd;
   color: #f4f4fd;
   background-color: var(--main-button-color);
   transform: translateY(100%);
+  transition: transform 250ms var(--transition-timing-function);
 }
 
 .example-link-info{
